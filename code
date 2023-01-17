@@ -15,7 +15,7 @@ public class javaCalculator {
                 + "You can use this program to perform some mathematical operations.");
         System.out.println("Your choices for arithmetic operations are +, -, *, / or %.");
         System.out.println("Or input A to calculate the average of two numbers, input X to find the maximum of two numbers, "
-                + '\n' + "input M to find the minimum of two numbers, input S to find the square of two numbers.");
+                + '\n' + "input M to find the minimum of two numbers, input S to find the square of a number.");
         System.out.println("When you are ready to quit the program, input Q.");
         
         System.out.println("Your output will be saved into a file named of your choice, "
