@@ -1,0 +1,222 @@
+import java.util.Scanner;
+import java.io.*;
+
+public class javaCalculator {
+
+    public static void main(String[] args) throws IOException {
+
+        char operation = 0;
+        int n1 = 0;
+        int n2 = 0;
+        String outputFileName;
+        Scanner stdin = new Scanner(System.in);
+        
+        System.out.println("Hello, welcome to the Calculator program! "
+                + "You can use this program to perform some mathematical operations.");
+        System.out.println("Your choices for arithmetic operations are +, -, *, / or %.");
+        System.out.println("Or input A to calculate the average of two numbers, input X to find the maximum of two numbers, "
+                + '\n' + "input M to find the minimum of two numbers, input S to find the square of two numbers.");
+        System.out.println("When you are ready to quit the program, input Q.");
+        
+        System.out.println("Your output will be saved into a file named of your choice, "
+                + '\n' + "please input what you would like the file to be named....");
+        outputFileName = stdin.next();
+        PrintWriter out = new PrintWriter(outputFileName);
+        
+        while (operation != 'Q') { 
+            
+            System.out.println("Please input which operation you would like the program to perform....");
+            operation = stdin.next().charAt(0);
+
+            switch(operation) {
+                case '+':
+                    addition(n1, n2, out); 
+                    break;
+                case '-':
+                    subtraction(n1, n2, out);
+                    break;
+                case '*':
+                    multiplication(n1, n2, out);
+                    break;
+                case '/':
+                    division(n1, n2, out);
+                    break;
+                case '%':
+                    modulus(n1, n2, out);
+                    break;
+                case 'A':
+                    average(n1, n2, out);
+                    break;
+                case 'X':
+                    maximum(n1, n2, out);
+                    break;
+                case 'M':
+                    minimum(n1, n2, out);
+                    break;
+                case 'S':
+                    square(n1, out);
+                    break;
+                case 'Q': 
+                    System.out.println("Thank you for using this program, good bye!");
+                    break;
+                default:
+                    System.out.println("Please enter a valid input....");
+                    break;
+            }
+          }
+        out.close();
+    }
+public static void addition(int n1, int n2, PrintWriter out) {
+            Scanner stdin = new Scanner(System.in);
+            System.out.println("Please input your first number....");
+            n1 = stdin.nextInt();
+            System.out.println("Please input your second number....");
+            n2 = stdin.nextInt();                
+            int sum = n1 + n2;
+                    System.out.println("Operation: addition");
+                    System.out.println("augend: " + n1);
+                    System.out.println("addend: " + n2);
+                    System.out.println("sum: " + sum); 
+                    out.println("Operation: addition");
+                    out.println("augend: " + n1);
+                    out.println("addend: " + n2);
+                    out.println("sum: " + sum);    
+    }
+    public static void subtraction(int n1, int n2, PrintWriter out) {
+            Scanner stdin = new Scanner(System.in);
+            System.out.println("Please input your first number....");
+            n1 = stdin.nextInt();
+            System.out.println("Please input your second number....");
+            n2 = stdin.nextInt();                
+            int difference = n1 - n2;
+                    System.out.println("Operation: subtraction");
+                    System.out.println("minuend: " + n1);
+                    System.out.println("subtrahend: " + n2);
+                    System.out.println("difference: " + difference);
+                    out.println("Operation: subtraction");
+                    out.println("minuend: " + n1);
+                    out.println("subtrahend: " + n2);
+                    out.println("difference: " + difference);
+}
+public static void multiplication(int n1, int n2, PrintWriter out) {
+            Scanner stdin = new Scanner(System.in);
+            System.out.println("Please input your first number....");
+            n1 = stdin.nextInt();
+            System.out.println("Please input your second number....");
+            n2 = stdin.nextInt();                
+            int product = n1 * n2;
+                    System.out.println("Operation: multiplication");
+                    System.out.println("multiplicand: " + n1);
+                    System.out.println("multiplier: " + n2);
+                    System.out.println("product: " + product);
+                    out.println("Operation: multiplication");
+                    out.println("multiplicand: " + n1);
+                    out.println("multiplier: " + n2);
+                    out.println("product: " + product);
+}    
+public static void division(int n1, int n2, PrintWriter out) {
+            Scanner stdin = new Scanner(System.in);
+            System.out.println("Please input your first number....");
+            n1 = stdin.nextInt();
+            System.out.println("Please input your second number....");
+            n2 = stdin.nextInt();                
+            double quotient = n1 / n2;
+                    System.out.println("Operation: division");
+                    System.out.println("dividend: " + n1);
+                    System.out.println("divisor: " + n2);
+                    System.out.println("quotient: " + quotient);
+                    out.println("Operation: division");
+                    out.println("dividend: " + n1);
+                    out.println("divisor: " + n2);
+                    out.println("quotient: " + quotient);
+}    
+public static void modulus(int n1, int n2, PrintWriter out) {
+            Scanner stdin = new Scanner(System.in);
+            System.out.println("Please input your first number....");
+            n1 = stdin.nextInt();
+            System.out.println("Please input your second number....");
+            n2 = stdin.nextInt();                
+            int remainder = n1 % n2;
+                    System.out.println("Operation: modulus");
+                    System.out.println("modulus dividend: " + n1);
+                    System.out.println("modulus divisor: " + n2);
+                    System.out.println("remainder: " + remainder);
+                    out.println("Operation: modulus");
+                    out.println("modulus dividend: " + n1);
+                    out.println("modulus divisor: " + n2);
+                    out.println("remainder: " + remainder);
+}    
+public static void average(int n1, int n2, PrintWriter out) {
+            Scanner stdin = new Scanner(System.in);
+            System.out.println("Please input your first number....");
+            n1 = stdin.nextInt();
+            System.out.println("Please input your second number....");
+            n2 = stdin.nextInt();                
+            double average = (n1+n2) * 0.5;
+                    System.out.println("Operation = average");
+                    System.out.println("number 1: " + n1);
+                    System.out.println("number 2: " + n2);
+                    System.out.println("average: " + average);
+                    out.println("Operation = average");
+                    out.println("number 1: " + n1);
+                    out.println("number 2: " + n2);
+                    out.println("average: " + average);
+}
+public static void maximum(int n1, int n2, PrintWriter out) {
+            Scanner stdin = new Scanner(System.in);
+            System.out.println("Please input your first number....");
+            n1 = stdin.nextInt();
+            System.out.println("Please input your second number....");
+            n2 = stdin.nextInt();                
+    int maximum;
+    if (n1 > n2) {
+                        maximum = n1;
+                    }
+                    else {
+                        maximum = n2;
+                    }
+                    System.out.println("Operation: maximum");
+                    System.out.println("number 1: " + n1);
+                    System.out.println("number 2: " + n2);
+                    System.out.println("maximum number: " + maximum);
+                    out.println("Operation: maximum");
+                    out.println("number 1: " + n1);
+                    out.println("number 2: " + n2);
+                    out.println("maximum number: " + maximum);
+}
+public static void minimum(int n1, int n2, PrintWriter out) {
+            Scanner stdin = new Scanner(System.in);
+            System.out.println("Please input your first number....");
+            n1 = stdin.nextInt();
+            System.out.println("Please input your second number....");
+            n2 = stdin.nextInt();                
+    int minimum;
+    if (n1 < n2) {
+                        minimum = n1;
+                    }
+                    else {
+                        minimum = n2;
+                    }
+                    System.out.println("Operation: minimum");
+                    System.out.println("number 1: " + n1);
+                    System.out.println("number 2: " + n2);
+                    System.out.println("minimum number: " + minimum);
+                    out.println("Operation: minimum");
+                    out.println("number 1: " + n1);
+                    out.println("number 2: " + n2);
+                    out.println("minimum number: " + minimum);
+}
+public static void square(double n1, PrintWriter out) {
+    Scanner stdin = new Scanner(System.in);
+    System.out.println("Please enter the number to square: ");
+    n1 = stdin.nextInt();
+    double square;
+    square = Math.pow(n1, 2);
+                    System.out.println("Operation: square");
+                    System.out.println("number: " + n1);
+                    System.out.println("number squared: " + square);
+                    out.println("Operation: square");
+                    out.println("number: " + n1);
+                    out.println("number squared: " + square);
+    }   
+}
